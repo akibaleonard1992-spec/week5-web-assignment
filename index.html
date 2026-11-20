@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SpendWise personal budget calculator">
+  <title>SpendWise - Budget Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="header">
+      <a class="brand" href="#" aria-label="SpendWise home">
+        <span class="brand-mark" aria-hidden="true">$</span>
+        <span>SpendWise</span>
+      </a>
+      <button class="help-button" type="button" id="promptButton">Use prompts</button>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Personal budget</p>
+        <h1>Plan your spending.<br>Keep more for later.</h1>
+      </div>
+      <p class="hero-copy">Enter your income and expenses to see what remains in your budget.</p>
+    </section>
+
+    <section class="calculator" aria-labelledby="calculatorTitle">
+      <form id="budgetForm" novalidate>
+        <h2 id="calculatorTitle">Monthly budget</h2>
+
+        <div class="field">
+          <label for="budgetInput">Total budget</label>
+          <div class="input-wrap">
+            <span class="currency">KSh</span>
+            <input id="budgetInput" name="budget" type="number" min="0" step="0.01" placeholder="50,000" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="expensesInput">Total expenses</label>
+          <div class="input-wrap">
+            <span class="currency">KSh</span>
+            <input id="expensesInput" name="expenses" type="number" min="0" step="0.01" placeholder="32,500" required>
+          </div>
+        </div>
+
+        <p class="form-error" id="formError" role="alert"></p>
+        <button class="calculate-button" type="submit">Calculate remaining balance</button>
+      </form>
+
+      <aside class="result-card" aria-live="polite">
+        <p class="result-label">Remaining balance</p>
+        <p class="balance" id="balance">KSh 0.00</p>
+        <div class="meter" aria-hidden="true">
+          <span id="meterFill"></span>
+        </div>
+        <div class="result-row">
+          <span>Budget</span>
+          <strong id="budgetResult">KSh 0.00</strong>
+        </div>
+        <div class="result-row">
+          <span>Expenses</span>
+          <strong id="expenseResult">KSh 0.00</strong>
+        </div>
+        <p class="status" id="status">Add your figures to begin.</p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
